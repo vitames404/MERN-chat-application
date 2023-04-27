@@ -2,6 +2,9 @@ import React from 'react'
 
 import { Container, Box, Text, Tab, TabList, TabPanel, TabPanels, Tabs, } from '@chakra-ui/react';
 
+import Login from '../components/authentication/Login';
+import Signup from '../components/authentication/Signup';
+
 const Homepage = () => {
   return (
     <Container maxW='xl' centerContent>
@@ -37,8 +40,8 @@ const Homepage = () => {
           <Tab width={"50%"}>Sign Up</Tab>
         </TabList>
         <TabPanels>
-          <TabPanel>{}</TabPanel>
-          <TabPanel>{}</TabPanel>
+          <TabPanel> <Login /> </TabPanel>
+          <TabPanel> <Signup /> </TabPanel>
         </TabPanels>
       </Tabs>
       </Box>
