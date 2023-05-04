@@ -8,6 +8,7 @@
 
 const mongoose = require('mongoose')
 
+// Define chat model
 const chatModel = mongoose.Schema({
 
     chatName:{type:String,trim:true},
