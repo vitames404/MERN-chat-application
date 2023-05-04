@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { FormControl, FormLabel, Input, InputGroup, InputRightElement, VStack, Button } from '@chakra-ui/react';
+import { FormControl, FormLabel, Input, InputGroup, InputRightElement, VStack, Button, useToast } from '@chakra-ui/react';
 
 const Signup = () => {
   
@@ -11,10 +11,55 @@ const Signup = () => {
   const [password, setPassword] = useState();
   const [confirmpassword, setConfirmpassword] = useState();
   const [pic, setPic] = useState();
+  const [loading, setLoading] = useState(false);
+  const toast = useToast();
 
   const handleClick = () => setShow(!show);
 
   const postDetails = (pics) => {
+
+    setLoading(true);
+    if(pics === undefined)
+    {
+        toast({
+            title: 'Please select an Image!',
+            status: 'warning',
+            duration: 5000,
+            isClosable: true,
+            position: "bottom",
+          });
+          return;
+    }
+
+    if(pics.type === "image/jpeg" || pics.type === "image/png")
+    {
+        const data = new FormData();
+        data.append("file", pics);
+        data.append("upload_preset", "chat-app");
+        data.append("cloud_name", "dmg1p7xlw");
+        fetch("https://api.cloudinary.com/v1_1/dmg1p7xlw/image/upload", {
+            method: 'post', 
+            body:data,
+        }).then((res) => res.json())
+        .then(data => {
+            setPic(data.url.toString());
+            setLoading(false);
+        }).catch((err) => {
+            console.log(err);
+            setLoading(false);
+        });
+    }
+    else{
+        toast({
+            title: "Please select an image",
+            status: 'warning',
+            duration: 5000,
+            isClosable: true,
+            position: "bottom",
+        });
+        setLoading(false);
+        return;
+    }
 
   };
 
@@ -82,9 +127,10 @@ const Signup = () => {
     
      <Button
         colorScheme = "blue"
-        width={"100%"}
-        style={{marginTop: 15}}
-        onClick={submitHandler}
+        width = {"100%"}
+        style = {{marginTop: 15}}
+        onClick = {submitHandler}
+        loading = {loading}
      >
         Sign Up
      </Button>
