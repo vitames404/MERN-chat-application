@@ -1,3 +1,7 @@
-<h2> Chat app made following tutorials from RoadsideCoder </h2>
+<h1> Portfolio messaging app 
+  <h3>
+    MERN chat app built based on the Roadsidecoder series
+    Project created using MongoDB, React.JS, Node.JS and Express.JS
+  <h3>
+</h1>
 
-Project created using MongoDB, React.JS, Node.JS and Express.JS
