@@ -15,7 +15,7 @@ const registerUser = asyncHandler(async (req, res) =>
         res.status(400);
         throw new Error("Please enter all the Fields");
     }
-
+    
     // Read about in the documentation but bascially it will 
     // search for the email in the database because it need to be unique
     const userExists = await User.findOne({email});
@@ -88,5 +88,11 @@ const authUser = asyncHandler(async (req, res) => {
 
 });
 
+// /api/user?search=variable
+const allUsers = asyncHandler(async(req, res) => {
+    const keyword = req.query
+    console.log(keyword);
+})
+
 // Export Everything
-module.exports={registerUser, authUser};
+module.exports={registerUser, authUser, allUsers};
