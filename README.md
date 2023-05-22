@@ -1,3 +1,11 @@
-<h2> Chat app made following tutorials from RoadsideCoder </h2>
+# Portfolio Messaging App 
 
-Project created using MongoDB, React.JS, Node.JS and Express.JS
+MERN Full-Stack chat application built based on the Roadsidecoder series. The app allows users to send and receive messages in real-time.
+
+## Technologies Used
+
+- MongoDB
+- Express.js
+- React.js
+- Node.js
+
