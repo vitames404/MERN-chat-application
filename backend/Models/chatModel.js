@@ -17,8 +17,8 @@ const chatModel = mongoose.Schema({
         {
             // Schemas details are more clear in the mongoose documentation
 
-            type:mongoose.Schema.Types.ObjectId,
-            ref:"User",
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "User"
 
         }
     ],
