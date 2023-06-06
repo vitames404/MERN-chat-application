@@ -1,11 +1,9 @@
-import React from 'react'
+import React from "react";
 
 const SideDrawer = () => {
-  return (
-    <div>
-        SideDrawer
-    </div>
-  )
-}
+  return <div>
+    SideDrawerAAAAAAAAAAAAAAAAAA
+    </div>;
+};
 
-export default SideDrawer
+export default SideDrawer;
